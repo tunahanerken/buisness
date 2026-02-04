@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopStock - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+</head>
+<body>
+    <main class="container">
+        <nav>
+            <ul>
+                <li><strong>ShopStock</strong></li>
+            </ul>
+            <ul>
+                <li><a asp-controller="Products" asp-action="Index">Ürünler</a></li>
+                <li><a asp-controller="Products" asp-action="Create">Yeni Ürün</a></li>
+            </ul>
+        </nav>
+        @RenderBody()
+    </main>
+</body>
+</html>
