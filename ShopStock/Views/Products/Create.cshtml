@@ -1,0 +1,48 @@
+@model ShopStock.Models.ProductCreateViewModel
+
+@{
+    ViewData["Title"] = "Yeni Ürün";
+}
+
+<h1>Yeni ürün girişi</h1>
+
+<form asp-action="Create" method="post">
+    <fieldset>
+        <label>
+            Ürün adı
+            <input asp-for="Name" />
+        </label>
+        <label>
+            SKU / Barkod
+            <input asp-for="Sku" />
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <label>
+            Parti kodu
+            <input asp-for="BatchCode" />
+        </label>
+        <label>
+            Stok miktarı
+            <input asp-for="Quantity" type="number" min="0" />
+        </label>
+        <label>
+            Geliş tarihi
+            <input asp-for="ReceivedAt" type="date" />
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <label>
+            Uyarı stok adedi
+            <input asp-for="WarningStockLevel" type="number" min="0" />
+        </label>
+        <label>
+            Kriz stok adedi
+            <input asp-for="CrisisStockLevel" type="number" min="0" />
+        </label>
+    </fieldset>
+
+    <button type="submit">Kaydet</button>
+</form>

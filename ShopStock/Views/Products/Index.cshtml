@@ -1,0 +1,44 @@
+@model IReadOnlyCollection<ShopStock.Models.Product>
+
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+<h1>Ürünler</h1>
+
+<p>
+    <a class="button" asp-action="Create">Yeni ürün ekle</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ürün</th>
+            <th>SKU</th>
+            <th>Toplam stok</th>
+            <th>Uyarı stok</th>
+            <th>Kriz stok</th>
+            <th>Partiler</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Sku</td>
+            <td>@product.StockBatches.Sum(batch => batch.Quantity)</td>
+            <td>@product.WarningStockLevel</td>
+            <td>@product.CrisisStockLevel</td>
+            <td>
+                <ul>
+                @foreach (var batch in product.StockBatches)
+                {
+                    <li>@batch.BatchCode - @batch.Quantity adet</li>
+                }
+                </ul>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
